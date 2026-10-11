@@ -3,25 +3,74 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #070b14;
+  --foreground: #e2e8f0;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Custom cyber scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b1120;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(11, 17, 32, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(51, 65, 85, 0.4);
+}
+
+.glass-panel-glow {
+  background: rgba(11, 17, 32, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  box-shadow: 0 0 20px -5px rgba(6, 182, 212, 0.15);
+}
+
+.glass-panel-danger {
+  background: rgba(18, 12, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  box-shadow: 0 0 20px -5px rgba(244, 63, 94, 0.15);
+}
+
+/* Matrix table styling */
+.matrix-cell {
+  transition: all 0.15s ease-in-out;
+}
+.matrix-cell:hover {
+  background-color: rgba(6, 182, 212, 0.2);
+  color: #00f0ff;
+}
+
+/* Interactive SVG graph helpers */
+.graph-canvas {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
